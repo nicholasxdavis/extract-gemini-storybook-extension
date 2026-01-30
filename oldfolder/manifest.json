@@ -4,8 +4,15 @@
   "name": "Storybook Extractor",
   "version": "2.3",
   "description": "Create printable versions of Gemini Storybooks and download them as PDFs.",
-  "permissions": ["activeTab", "scripting", "storage", "declarativeNetRequest"],
-  "host_permissions": ["<all_urls>"],
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "declarativeNetRequest"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
   "declarative_net_request": {
     "rule_resources": [
       {
@@ -33,14 +40,15 @@
         "style.css",
         "generator.html",
         "generator.js",
-        "watermark.js",
         "lib/pdf-lib.min.js",
         "lib/fontkit.umd.min.js",
         "fonts/poppins-latin-400-normal.ttf",
         "fonts/poppins-latin-500-normal.ttf",
-        "img/heart.png"
+        "img/heart.png" 
       ],
-      "matches": ["<all_urls>"]
+      "matches": [
+        "<all_urls>"
+      ]
     }
   ]
 }

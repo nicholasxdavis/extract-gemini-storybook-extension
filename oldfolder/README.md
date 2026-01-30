@@ -1,6 +1,6 @@
 # Extract Gemini Storybook Extension
 
-A simple Chrome extension that extracts text and images from Gemini storybooks removes watermarks and saves them as a PDF.  
+A simple Chrome extension that extracts text and images from Gemini storybooks and saves them as a PDF.  
 Built for storybooks with a consistent structure — each page containing an image and a corresponding text block.  
 
 ---

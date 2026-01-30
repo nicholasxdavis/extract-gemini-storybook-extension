@@ -56,82 +56,38 @@ function createUI() {
 
   const overlay = document.createElement('div');
   overlay.id = 'storybook-extractor-overlay';
-  
   const container = document.createElement('div');
   container.id = 'storybook-extractor-container';
-  
-  // Close Button
-  const closeButton = document.createElement('button');
-  closeButton.id = 'storybook-extractor-close-btn';
-  closeButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`;
-  closeButton.title = "Close";
-  
-  // Title
   const titleElement = document.createElement('h1');
   titleElement.textContent = bookData.title;
-  
-  // Preview Image
   const coverPreview = document.createElement('img');
   coverPreview.src = bookData.imageUrls[0];
   coverPreview.id = 'storybook-extractor-cover-preview';
-  
-  // Download Button
+  const closeIconSVG = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`;
   const downloadButton = document.createElement('button');
   downloadButton.textContent = 'Download PDF';
   downloadButton.id = 'storybook-extractor-download-btn';
-  
-  // Watermark Options
-  const watermarkContainer = document.createElement('div');
-  watermarkContainer.style.marginBottom = '15px';
-  watermarkContainer.style.display = 'flex';
-  watermarkContainer.style.alignItems = 'center';
-  watermarkContainer.style.justifyContent = 'center';
-  watermarkContainer.style.gap = '8px';
-
-  const watermarkCheckbox = document.createElement('input');
-  watermarkCheckbox.type = 'checkbox';
-  watermarkCheckbox.id = 'storybook-extractor-watermark-check';
-  watermarkCheckbox.checked = true; // Default to removing watermark
-  
-  const watermarkLabel = document.createElement('label');
-  watermarkLabel.htmlFor = 'storybook-extractor-watermark-check';
-  watermarkLabel.textContent = 'Remove Watermark';
-  watermarkLabel.style.fontSize = '14px';
-  watermarkLabel.style.color = '#333';
-  watermarkLabel.style.cursor = 'pointer';
-
-  watermarkContainer.appendChild(watermarkCheckbox);
-  watermarkContainer.appendChild(watermarkLabel);
-  
-  // Assemble
-  container.appendChild(closeButton);
-  container.appendChild(titleElement);
-  container.appendChild(coverPreview);
-  container.appendChild(watermarkContainer);
-  container.appendChild(downloadButton);
-  overlay.appendChild(container);
-  document.body.appendChild(overlay);
+  const closeButton = document.createElement('button');
+  closeButton.innerHTML = closeIconSVG;
+  closeButton.id = 'storybook-extractor-close-btn';
 
   downloadButton.addEventListener('click', () => {
     downloadButton.textContent = 'Generating...';
     downloadButton.disabled = true;
-    downloadButton.style.opacity = '0.7';
-    downloadButton.style.cursor = 'wait';
-    
-    // update bookData with user choice
-    bookData.removeWatermark = watermarkCheckbox.checked;
-
     chrome.storage.local.set({ bookDataForGenerator: bookData }, () => {
       window.open(chrome.runtime.getURL('generator.html'), '_blank');
       setTimeout(() => { overlay.remove(); }, 1000);
     });
   });
 
-  closeButton.addEventListener('click', () => { 
-      overlay.style.opacity = '0';
-      overlay.querySelector('#storybook-extractor-container').style.transform = 'scale(0.95) translateY(10px)';
-      setTimeout(() => overlay.remove(), 300); 
-  });
+  closeButton.addEventListener('click', () => { overlay.remove(); });
+
+  container.appendChild(closeButton);
+  container.appendChild(titleElement);
+  container.appendChild(coverPreview);
+  container.appendChild(downloadButton);
+  overlay.appendChild(container);
+  document.body.appendChild(overlay);
 
   const styleId = 'storybook-extractor-styles';
   if (!document.getElementById(styleId)) {
