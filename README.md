@@ -46,6 +46,12 @@ It intelligently extracts high-resolution imagery and text, removes watermarks a
 3.  The extension will fetch high-resolution images, clean them, and compile the book.
 4.  The PDF will download automatically once processing is complete.
 
+   ## Credits
+
+This project builds upon the research and logic provided by the open-source community:
+
+* **[GeminiWatermarkTool](https://github.com/allenk/GeminiWatermarkTool)** by [Allen K](https://github.com/allenk) - Special thanks for the original logic on watermark detection and reverse alpha blending.
+
 
 ## License
 
