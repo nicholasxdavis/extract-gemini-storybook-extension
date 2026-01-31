@@ -46,12 +46,6 @@ It intelligently extracts high-resolution imagery and text, removes watermarks a
 3.  The extension will fetch high-resolution images, clean them, and compile the book.
 4.  The PDF will download automatically once processing is complete.
 
-## Technology
-
-* **Manifest V3:** Modern Chrome Extension architecture.
-* **PDF-Lib:** Client-side PDF generation.
-* **WatermarkEngine:** Custom logic for watermark removal.
-* **Fontkit:** Advanced font embedding and subsetting.
 
 ## License
 
