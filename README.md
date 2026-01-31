@@ -53,14 +53,6 @@ It intelligently extracts high-resolution imagery and text, removes watermarks a
 * **WatermarkEngine:** Custom logic for watermark removal.
 * **Fontkit:** Advanced font embedding and subsetting.
 
-## Support
-
-If this tool helps you create books, consider supporting the development.
-
-<a href="https://buymeacoffee.com/galore" target="_blank">
-  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" >
-</a>
-
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
