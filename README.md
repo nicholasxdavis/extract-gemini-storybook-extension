@@ -15,7 +15,7 @@
 
 <br />
 
-## About
+## About!
 
 **Storybook Extractor** is a Chrome extension designed to automate the conversion of Google Gemini storybooks into professional, printable PDF documents.
 
