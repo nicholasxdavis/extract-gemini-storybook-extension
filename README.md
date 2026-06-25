@@ -1,3 +1,6 @@
+This project is no longer actively maintained.
+
+
 <div align="center">
 
 <img src="https://github.com/nicholasxdavis/extract-gemini-storybook-extension-/blob/main/icons/icon.png?raw=true" alt="Storybook Extractor Logo" width="128" />
